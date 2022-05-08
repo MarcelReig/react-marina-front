@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { DropzoneComponent } from "react-dropzone-component";
+
+import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
+import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 export default class PortfolioForm extends Component {
   constructor(props) {
@@ -13,6 +17,32 @@ export default class PortfolioForm extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.componentConfig = this.componentConfig.bind(this);
+    this.djsConfig = this.djsConfig.bind(this);
+    this.handleThumbDrop = this.handleThumbDrop.bind(this);
+
+    this.thumbRef = React.createRef();
+  }
+
+  handleThumbDrop() {
+    return {
+      addedfile: (file) => this.setState({ thumb_img_url: file }),
+    };
+  }
+
+  componentConfig() {
+    return {
+      iconFiletypes: [".jpg", ".png"],
+      showFiletypeIcon: true,
+      postUrl: "https://httpbin.org/post",
+    };
+  }
+
+  djsConfig() {
+    return {
+      addRemoveLinks: true,
+      maxFiles: 1,
+    };
   }
 
   handleChange(event) {
@@ -26,13 +56,23 @@ export default class PortfolioForm extends Component {
       .post("http://127.0.0.1:5000/add", {
         name: this.state.collection_name,
         description: this.state.description,
-        thumb_img_url: this.state.thumb_img_url,
+        thumb_img_url: this.state.thumb_img_url.dataURL,
       })
 
       .then((response) => {
         this.props.handleSuccessfulFormSubmission(response.data);
-        console.log("response", response);
+
+        this.setState({
+          collection_name: "",
+          description: "",
+          thumb_img_url: "",
+        });
+
+        [this.thumbRef].forEach((ref) => {
+          ref.current.dropzone.removeAllFiles();
+        });
       })
+
       .catch((error) => {
         console.log("portfolio form handleSubmit error", error);
       });
@@ -43,10 +83,8 @@ export default class PortfolioForm extends Component {
   render() {
     return (
       <div>
-        <h1>PortfolioForm</h1>
-
-        <form onSubmit={this.handleSubmit}>
-          <div>
+        <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
+          <div className="one-column">
             <input
               type="text"
               name="collection_name"
@@ -54,16 +92,9 @@ export default class PortfolioForm extends Component {
               value={this.state.collection_name}
               onChange={this.handleChange}
             />
-            <input
-              type="text"
-              name="thumb_img_url"
-              placeholder="Imagen url"
-              value={this.state.thumb_img_url}
-              onChange={this.handleChange}
-            />
           </div>
 
-          <div>
+          <div className="one-column">
             <textarea
               type="text"
               name="description"
@@ -73,8 +104,23 @@ export default class PortfolioForm extends Component {
             />
           </div>
 
+          <div className="image-uploaders">
+            <DropzoneComponent
+              ref={this.thumbRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleThumbDrop()}
+            >
+              <div className="dz-message">
+                Arrastra aquí la imagen de portada
+              </div>
+            </DropzoneComponent>
+          </div>
+
           <div>
-            <button type="submit">Añadir colección</button>
+            <button className="btn" type="submit">
+              Añadir colección
+            </button>
           </div>
         </form>
       </div>

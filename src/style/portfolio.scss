@@ -3,36 +3,36 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
-a {
-  text-decoration: none;
-  color: $charcoal;
-  transition: 0.4s ease-in-out;
-  &:hover {
-    color: $grey;
+  a {
+    text-decoration: none;
+    color: $charcoal;
+    transition: 0.4s ease-in-out;
+    &:hover {
+      color: $grey;
+    }
   }
-}
   .portfolio-item-wrapper {
     text-align: center;
-
+    background-color: black;
     .portfolio-img-background {
-      border-radius: 3px;
-      background-color: $charcoal;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       height: 350px;
       width: 100%;
       mix-blend-mode: luminosity;
-      &:hover{
+      &:hover {
         mix-blend-mode: unset;
       }
     }
-    .collection-title-wrapper {
-      background-color: $offwhite;
+    .collection-title {
+      background-color: white;
     }
     .collection-title {
       font-size: 1.3rem;
       font-weight: 400;
+      margin-top: 0;
+      padding-top: 20px;
     }
   }
 }
