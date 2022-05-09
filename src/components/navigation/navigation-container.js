@@ -16,6 +16,11 @@ const NavigationComponent = (props) => {
   return (
     <div className="nav-wrapper">
       <div className="left-side">
+        <NavLink exact to="/" className="brand">
+          Marina
+        </NavLink>
+      </div>
+      <div className="right-side">
         <div className="nav-link-wrapper">
           <NavLink exact to="/" activeClassName="nav-link-active">
             Home
@@ -37,7 +42,7 @@ const NavigationComponent = (props) => {
         {/* Manten esto para desarollo - eliminalo para produción */}
         <div className="nav-link-wrapper">
           <NavLink to="/portfolio-manager" activeClassName="nav-link-active">
-          Portfolio Manager
+            Dashboard
           </NavLink>
         </div>
 
@@ -45,7 +50,6 @@ const NavigationComponent = (props) => {
           ? dynamicLink("/portfolio-manager", "Portfolio Manager")
           : null}
       </div>
-      <div className="right-side">MARINA</div>
     </div>
   );
 };
