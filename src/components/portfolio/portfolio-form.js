@@ -13,6 +13,7 @@ export default class PortfolioForm extends Component {
       collection_name: "",
       description: "",
       thumb_img_url: "",
+      gallery: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,8 +21,10 @@ export default class PortfolioForm extends Component {
     this.componentConfig = this.componentConfig.bind(this);
     this.djsConfig = this.djsConfig.bind(this);
     this.handleThumbDrop = this.handleThumbDrop.bind(this);
+    this.handleGalleryDrop = this.handleGalleryDrop.bind(this);
 
     this.thumbRef = React.createRef();
+    this.galleryRef = React.createRef();
   }
 
   handleThumbDrop() {
@@ -30,18 +33,26 @@ export default class PortfolioForm extends Component {
     };
   }
 
+  handleGalleryDrop() {
+    return {
+      addedfile: (file) => this.setState({ gallery: file }),
+    };
+  }
+
   componentConfig() {
     return {
       iconFiletypes: [".jpg", ".png"],
       showFiletypeIcon: true,
       postUrl: "https://httpbin.org/post",
+      uploadMultiple: true,
     };
   }
 
   djsConfig() {
     return {
       addRemoveLinks: true,
-      maxFiles: 1,
+      maxFiles: 10,
+      uploadMultiple: true,
     };
   }
 
@@ -57,6 +68,7 @@ export default class PortfolioForm extends Component {
         name: this.state.collection_name,
         description: this.state.description,
         thumb_img_url: this.state.thumb_img_url.dataURL,
+        gallery: this.state.gallery,
       })
 
       .then((response) => {
@@ -66,9 +78,10 @@ export default class PortfolioForm extends Component {
           collection_name: "",
           description: "",
           thumb_img_url: "",
+          gallery: "",
         });
 
-        [this.thumbRef].forEach((ref) => {
+        [this.thumbRef, this.galleryRef].forEach((ref) => {
           ref.current.dropzone.removeAllFiles();
         });
       })
@@ -113,6 +126,16 @@ export default class PortfolioForm extends Component {
             >
               <div className="dz-message">
                 Arrastra aquí la imagen de portada
+              </div>
+            </DropzoneComponent>
+            <DropzoneComponent
+              ref={this.galleryRef}
+              config={this.componentConfig()}
+              djsConfig={this.djsConfig()}
+              eventHandlers={this.handleGalleryDrop()}
+            >
+              <div className="dz-message">
+                Arrastra aquí las imágenes de la galería
               </div>
             </DropzoneComponent>
           </div>

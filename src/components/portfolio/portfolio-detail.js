@@ -29,7 +29,7 @@ export default class PortfolioDetail extends Component {
   }
 
   render() {
-    const { description, name, thumb_image_url } = this.state.portfolioItem;
+    const { description, name } = this.state.portfolioItem;
 
     return (
       <div className="portfolio-detail-wrapper">
