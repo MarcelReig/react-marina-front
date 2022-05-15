@@ -45,7 +45,6 @@ export default class PortfolioDetail extends Component {
         width: myGallery[i].width,
       });
     }
-    console.log(photos);
 
     this.setState({ photos: photos });
   }
