@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-//import { photos } from "./photos";
 import Gallery from "react-photo-gallery";
 import axios from "axios";
-//import { photos } from "./photos";
 
 export default class PortfolioDetail extends Component {
   constructor(props) {
