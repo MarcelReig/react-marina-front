@@ -41,7 +41,7 @@ export default class PortfolioForm extends Component {
 
   componentConfig() {
     return {
-      iconFiletypes: [".jpg", ".png"],
+      iconFiletypes: [".jpg", , ".jpeg", ".png"],
       showFiletypeIcon: true,
       postUrl: "https://httpbin.org/post",
       uploadMultiple: true,
@@ -78,7 +78,7 @@ export default class PortfolioForm extends Component {
           collection_name: "",
           description: "",
           thumb_img_url: "",
-          gallery: "",
+          gallery: [],
         });
 
         [this.thumbRef, this.galleryRef].forEach((ref) => {

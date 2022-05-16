@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Gallery from "react-photo-gallery";
 import axios from "axios";
+import Gallery from "react-photo-gallery";
 
 export default class PortfolioDetail extends Component {
   constructor(props) {
@@ -37,6 +37,7 @@ export default class PortfolioDetail extends Component {
 
   afterSetStateFinished() {
     const myGallery = this.state.portfolioItem.gallery;
+    console.log(myGallery);
     const photos = [];
     for (let i = 0; i < myGallery.length; i++) {
       photos.push({
@@ -50,15 +51,15 @@ export default class PortfolioDetail extends Component {
   }
 
   render() {
-    const { description, name, gallery } = this.state.portfolioItem;
-
+    const { description, name } = this.state.portfolioItem;
+    const BasicRows = () => <Gallery photos={this.state.photos} />;
     return (
       <div className="portfolio-detail-wrapper">
         <div className="portfolio-detail-header">
           <h2>{name}</h2>
           <p>{description}</p>
         </div>
-        <Gallery photos={this.state.photos} />
+        <BasicRows />
       </div>
     );
   }
