@@ -1,7 +1,5 @@
-# React/Redux/Router Starter Project
+# react-marina-frontend
 
-> Provided for the students of the [Bottega Code School](https://bottega.tech/)
+> Capstone project for [Bottega Code School](https://bottega.tech/)
 
-*Fork from [es6-webpack2-starter](https://github.com/micooz/es6-webpack2-starter)*
-
-Node version 8# react-marina-front
+- node 16.15.0
