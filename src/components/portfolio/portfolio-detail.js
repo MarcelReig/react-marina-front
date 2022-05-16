@@ -18,7 +18,8 @@ export default class PortfolioDetail extends Component {
 
   getPortfolioItem() {
     axios
-      .get(`http://127.0.0.1:5000/portfolio/${this.props.match.params.slug}`)
+      //.get(`http://127.0.0.1:5000/portfolio/${this.props.match.params.slug}`)
+      .get(`https://marina-backend.herokuapp.com/portfolio/${this.props.match.params.slug}`)
       .then((response) => {
         console.log("res", response);
         this.setState(

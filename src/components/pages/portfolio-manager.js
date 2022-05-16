@@ -20,7 +20,8 @@ export default class PortfolioManager extends Component {
 
   handleDeleteClick(portfolioItem) {
     axios
-      .delete(`http://127.0.0.1:5000/portfolio/${portfolioItem._id.$oid}`)
+      //.delete(`http://127.0.0.1:5000/portfolio/${portfolioItem._id.$oid}`)
+      .delete(`https://marina-backend.herokuapp.com/portfolio/${portfolioItem._id.$oid}`)
       .then((response) => {
         this.setState({
           portfolioItems: this.state.portfolioItems.filter((item) => {
@@ -47,7 +48,8 @@ export default class PortfolioManager extends Component {
 
   getPortfolioItems() {
     axios
-      .get("http://127.0.0.1:5000/portfolio")
+      // .get("http://127.0.0.1:5000/portfolio")
+      .get("https://marina-backend.herokuapp.com/portfolio")
 
       .then((response) => {
         console.log("response data", response);
