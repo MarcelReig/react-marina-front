@@ -1,4 +1,4 @@
-# react-marina-frontend
+# React marina frontend
 
 > Capstone project for [Bottega Code School](https://bottega.tech/)
 
