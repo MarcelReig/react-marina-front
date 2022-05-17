@@ -12,4 +12,6 @@
 - GitHub
 - Heroku
 
+### Live version: 
+
 - [Heroku app](https://react-marina-frontend.herokuapp.com/)
