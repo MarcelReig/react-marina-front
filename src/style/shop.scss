@@ -8,20 +8,13 @@
   padding: 2rem;
 }
 .marina-store > *:first-child {
-  flex-shrink: 1;
-  flex-basis: 50%;
+  flex-basis: 60%;
   background: $offwhite;
 }
 .marina-store > *:nth-child(2) {
-  border-left: 0;
-  border-right: 0;
+  flex-basis: 40%;
   min-width: 300px;
-  background: $offwhite;
-}
-.marina-store > *:last-child {
-  background-color: $grey-light;
-  flex-shrink: 1;
-  flex-basis: 50%;
+  background: $grey-light;
 }
 
 ul.order li {
@@ -113,25 +106,19 @@ ul.order li span.count span {
   justify-content: space-between;
 }
 
-.add-product {
+.inventory-form-wrapper {
   @include input-element;
-  textarea,
-  button {
-    width: 100%;
-  }
   textarea {
     background: #fff;
-    margin-bottom: 10px;
+    width: 100%;
+    margin-bottom: 20px;
   }
-}
-
-.mt50 {
-  margin-top: 50px;
-}
-
-.inventory {
-  padding: 20px;
+  padding: 42px;
   height: 90vh;
+}
+.add-product-btn {
+  margin-top: 20px;
+  width: 100%;
 }
 
 @media (min-width: 768px) {

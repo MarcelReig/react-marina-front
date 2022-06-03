@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Header from "../shop/header";
 import Order from "../shop/order";
 import Product from "../shop/product";
+import Header from "../shop/header";
 
 import axios from "axios";
 
@@ -18,7 +18,6 @@ export default class Shop extends Component {
         this.setState({
           products: response.data,
         });
-        console.log("Response", response);
       })
       .catch((error) => {
         console.log(error);

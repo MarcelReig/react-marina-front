@@ -2,18 +2,18 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const InventorySidebarList = (props) => {
-  const inventoryList = props.data.map((inventoryItem) => {
+  const inventoryList = props.data.map((productItem) => {
     return (
-      <div key={inventoryItem._id.$oid} className="portfolio-item-thumb">
+      <div key={productItem._id.$oid} className="portfolio-item-thumb">
         <div className="portfolio-thumb-img">
-          <img src={inventoryItem.image} />
+          <img src={productItem.image} />
         </div>
 
         <div className="text-content">
-          <div className="title">{inventoryItem.name}</div>
+          <div className="title">{productItem.name}</div>
           <a
             className="delete-icon"
-            onClick={() => props.handleDeleteClick(inventoryItem)}
+            onClick={() => props.handleDeleteClick(productItem)}
           >
             <FontAwesomeIcon icon="trash" />
           </a>

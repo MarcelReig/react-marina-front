@@ -18,15 +18,13 @@ export default class InventoryManager extends Component {
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
   }
 
-  handleDeleteClick(storeItem) {
+  handleDeleteClick(product) {
     axios
-      .delete(
-        `https://marina-backend.herokuapp.com/store/${storeItem._id.$oid}`
-      )
+      .delete(`https://marina-backend.herokuapp.com/store/${product._id.$oid}`)
       .then((response) => {
         this.setState({
-          storeItems: this.state.storeItems.filter((item) => {
-            return item._id.$oid !== storeItem._id.$oid;
+          products: this.state.products.filter((item) => {
+            return item._id.$oid !== product._id.$oid;
           }),
         });
 
@@ -37,9 +35,9 @@ export default class InventoryManager extends Component {
       });
   }
 
-  SuccessfulStoreSubmission(storeItem) {
+  SuccessfulStoreSubmission(product) {
     this.setState({
-      storeItems: [storeItem].concat(this.state.storeItems),
+      products: [product].concat(this.state.products),
     });
   }
 
@@ -50,7 +48,6 @@ export default class InventoryManager extends Component {
   getStoreItems() {
     axios
       .get("https://marina-backend.herokuapp.com/store")
-
       .then((response) => {
         this.setState({
           products: response.data,
@@ -67,12 +64,16 @@ export default class InventoryManager extends Component {
 
   render() {
     return (
-      <div className="portfolio-manager-wrapper">
+      <div className="manager-wrapper">
         <div className="left-column">
-          <InventoryForm
-            SuccessfulStoreSubmission={this.SuccessfulStoreSubmission}
-            handleStoreFormSubmissionError={this.handleStoreFormSubmissionError}
-          />
+          <div>
+            <InventoryForm
+              SuccessfulStoreSubmission={this.SuccessfulStoreSubmission}
+              handleStoreFormSubmissionError={
+                this.handleStoreFormSubmissionError
+              }
+            />
+          </div>
         </div>
 
         <div className="right-column">

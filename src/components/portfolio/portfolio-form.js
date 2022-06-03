@@ -97,6 +97,7 @@ export default class PortfolioForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
+        <h2>Portfolio Manager</h2>
           <div className="one-column">
             <input
               type="text"

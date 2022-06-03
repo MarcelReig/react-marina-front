@@ -20,7 +20,9 @@ export default class PortfolioManager extends Component {
 
   handleDeleteClick(portfolioItem) {
     axios
-      .delete(`https://marina-backend.herokuapp.com/portfolio/${portfolioItem._id.$oid}`)
+      .delete(
+        `https://marina-backend.herokuapp.com/portfolio/${portfolioItem._id.$oid}`
+      )
       .then((response) => {
         this.setState({
           portfolioItems: this.state.portfolioItems.filter((item) => {
@@ -65,7 +67,7 @@ export default class PortfolioManager extends Component {
 
   render() {
     return (
-      <div className="portfolio-manager-wrapper">
+      <div className="manager-wrapper">
         <div className="left-column">
           <PortfolioForm
             handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
