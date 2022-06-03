@@ -41,7 +41,7 @@ export default class PortfolioForm extends Component {
 
   componentConfig() {
     return {
-      iconFiletypes: [".jpg", , ".jpeg", ".png"],
+      iconFiletypes: [".jpg", ".jpeg", ".png"],
       showFiletypeIcon: true,
       postUrl: "https://httpbin.org/post",
       uploadMultiple: true,
@@ -64,7 +64,7 @@ export default class PortfolioForm extends Component {
 
   handleSubmit(event) {
     axios
-      .post("http://127.0.0.1:5000/add", {
+      .post("https://marina-backend.herokuapp.com/add", {
         name: this.state.collection_name,
         description: this.state.description,
         thumb_img_url: this.state.thumb_img_url.dataURL,

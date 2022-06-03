@@ -34,8 +34,20 @@ const NavigationComponent = (props) => {
         </div>
 
         <div className="nav-link-wrapper">
+          <NavLink to="/shop" activeClassName="nav-link-active">
+            Tienda
+          </NavLink>
+        </div>
+
+        <div className="nav-link-wrapper">
           <NavLink to="/contact" activeClassName="nav-link-active">
             Contacto
+          </NavLink>
+        </div>
+
+        <div className="nav-link-wrapper">
+          <NavLink to="/inventory-manager" activeClassName="nav-link-active">
+            Inventory Manager
           </NavLink>
         </div>
 

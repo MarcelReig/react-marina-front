@@ -15,10 +15,8 @@ export default class PortfolioContainer extends Component {
 
   getPortfolioItems() {
     axios
-      //.get("http://127.0.0.1:5000/portfolio")
       .get("https://marina-backend.herokuapp.com/portfolio")
       .then((response) => {
-        console.log("response data", response);
         this.setState({
           data: response.data,
         });

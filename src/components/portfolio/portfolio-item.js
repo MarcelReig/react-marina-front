@@ -19,6 +19,7 @@ export default class PortfolioItem extends Component {
   render() {
     const { _id, thumb_img_url, name } = this.props.item;
     return (
+      
       <Link to={`/portfolio/${_id.$oid}`}>
         <div
           className="portfolio-item-wrapper"
