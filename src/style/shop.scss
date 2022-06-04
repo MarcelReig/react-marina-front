@@ -1,7 +1,7 @@
 .marina-store {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: calc(100vh - 95px);
   margin: 0 auto;
 }
 .marina-store > * {
@@ -27,12 +27,16 @@ ul.order li {
 }
 ul.order li:hover button {
   display: inline;
+  cursor: pointer;
 }
 ul.order li button {
   border: 0;
-  display: none;
+  display: inline;
   line-height: 1;
-  padding: 0;
+  width: 30px;
+}
+ul.order li button:hover {
+  text-decoration: underline;
 }
 ul.order li .price {
   font-size: 1.2rem;
@@ -114,19 +118,28 @@ ul.order li span.count span {
     margin-bottom: 20px;
   }
   padding: 42px;
-  height: 90vh;
+  height: calc(100vh - 95px);
 }
 .add-product-btn {
   margin-top: 20px;
   width: 100%;
 }
+.checkout-btn {
+  margin-top: 50px;
+}
 
 @media (min-width: 768px) {
   .marina-store {
     flex-direction: row;
-    height: 90vh;
+    height: calc(100vh - 95px);
   }
   .marina-store > *:first-child {
     overflow: scroll;
+  }
+  ul.order li button {
+    border: 0;
+    display: none;
+    line-height: 1;
+    padding: 0;
   }
 }

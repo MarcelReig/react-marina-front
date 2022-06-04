@@ -34,6 +34,12 @@ export default class Shop extends Component {
     this.setState({ order });
   };
 
+  removeFromOrder = (key) => {
+    const order = { ...this.state.order };
+    delete order[key];
+    this.setState({ order });
+  };
+
   render() {
     return (
       <div className="marina-store">
@@ -50,7 +56,11 @@ export default class Shop extends Component {
             ))}
           </ul>
         </div>
-        <Order products={this.state.products} order={this.state.order} />
+        <Order
+          products={this.state.products}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
       </div>
     );
   }

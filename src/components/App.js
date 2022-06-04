@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrash, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrash,
+  faSignOutAlt,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 import NavigationContainer from "./navigation/navigation-container";
+
 import Home from "./pages/home";
 import About from "./pages/about";
 import Shop from "./pages/shop";
@@ -15,7 +20,7 @@ import NoMatch from "./pages/no-match";
 import Icons from "../helpers/icons";
 import InventoryManager from "./pages/inventory-manager";
 
-library.add(faTrash, faSignOutAlt);
+library.add(faTrash, faSignOutAlt, faXmark);
 
 export default class App extends Component {
   constructor(props) {
@@ -57,6 +62,11 @@ export default class App extends Component {
         path="/portfolio-manager"
         component={PortfolioManager}
       />,
+      <Route
+      key="inventory-manager"
+      path="/inventory-manager"
+      component={InventoryManager}
+    />,
     ];
   }
 
@@ -86,8 +96,7 @@ export default class App extends Component {
               <Route path="/shop" component={Shop} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
-              <Route path="/inventory-manager" component={InventoryManager} />
-              {/* Manten esta ruta para desarrollo - eliminala en producción */}
+              {/* <Route path="/inventory-manager" component={InventoryManager} /> */}
               {/* <Route path="/portfolio-manager" component={PortfolioManager} /> */}
               {this.state.loggedInStatus === "LOGGED_IN"
                 ? this.authorizedPages()

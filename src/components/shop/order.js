@@ -12,6 +12,9 @@ export default class Order extends Component {
         <div>{count}</div>
         <div>{product.name}</div>
         <div> {formatPrice(count * product.price)}</div>
+        <button onClick={() => this.props.removeFromOrder(key)}>
+          <FontAwesomeIcon icon="fa-xmark" />
+        </button>
       </li>
     );
   };
@@ -20,7 +23,6 @@ export default class Order extends Component {
     const total = orderIds.reduce((prevTotal, key) => {
       const product = this.props.products[key];
       const count = this.props.order[key];
-
       return prevTotal + count * product.price;
     }, 0);
 
@@ -35,6 +37,12 @@ export default class Order extends Component {
           Total:
           <strong>{formatPrice(total)}</strong>
         </div>
+        <button
+          onClick={() => alert("Implement Checkout!")}
+          className="btn checkout-btn"
+        >
+          Checkout
+        </button>
       </div>
     );
   }
