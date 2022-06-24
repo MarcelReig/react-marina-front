@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+
 export default class PortfolioItem extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,6 @@ export default class PortfolioItem extends Component {
   render() {
     const { _id, thumb_img_url, name } = this.props.item;
     return (
-      
       <Link to={`/portfolio/${_id.$oid}`}>
         <div
           className="portfolio-item-wrapper"

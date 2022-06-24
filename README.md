@@ -12,11 +12,11 @@
 - GitHub
 - Heroku
 
-### Live version: 
+### Live version:
 
 - [Heroku app](https://react-marina-frontend.herokuapp.com/)
 
+### Environment:
 
-### environment
-
-Using node v16.15.0 (npm v8.5.5)
+- npm: 8.5.5
+- node: 16.15.0

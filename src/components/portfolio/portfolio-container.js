@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import PortfolioItem from "./portfolio-item";
+import SkeletonPortfolio from "../skeletons/SkeletonPortfolio";
 
 export default class PortfolioContainer extends Component {
   constructor() {
     super();
 
     this.state = {
-      isLoading: false,
+      isLoading: true,
       data: [],
     };
   }
@@ -19,6 +20,7 @@ export default class PortfolioContainer extends Component {
       .then((response) => {
         this.setState({
           data: response.data,
+          isLoading: false,
         });
       })
       .catch((error) => {
@@ -38,7 +40,16 @@ export default class PortfolioContainer extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <div>Loading...</div>;
+      return (
+        <div className="portfolio-items-wrapper">
+          <SkeletonPortfolio />
+          <SkeletonPortfolio />
+          <SkeletonPortfolio />
+          <SkeletonPortfolio />
+          <SkeletonPortfolio />
+          <SkeletonPortfolio />
+        </div>
+      );
     }
 
     return (
