@@ -4,9 +4,11 @@ import Product from "../shop/product";
 import Header from "../shop/header";
 
 import axios from "axios";
+import SkeletonShop from "../skeletons/SkeletonShop";
 
 export default class Shop extends Component {
   state = {
+    isLoading: true,
     products: [],
     order: {},
   };
@@ -17,6 +19,7 @@ export default class Shop extends Component {
       .then((response) => {
         this.setState({
           products: response.data,
+          isLoading: false,
         });
       })
       .catch((error) => {
@@ -41,6 +44,27 @@ export default class Shop extends Component {
   };
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div className="marina-store">
+          <div className="menu">
+            <Header tagline="Mercadillo de Arte" />
+            <SkeletonShop />
+            <SkeletonShop />
+            <SkeletonShop />
+            <SkeletonShop />
+            <SkeletonShop />
+            <SkeletonShop />
+          </div>
+          <Order
+            products={this.state.products}
+            order={this.state.order}
+            removeFromOrder={this.removeFromOrder}
+          />
+        </div>
+      );
+    }
+
     return (
       <div className="marina-store">
         <div className="menu">

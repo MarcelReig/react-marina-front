@@ -1,6 +1,13 @@
 /* basic styles */
 .skeleton-wrapper {
   position: relative;
+  overflow: hidden;
+}
+.product-wrapper {
+  padding: 20px;
+  margin: 20px 0;
+  background: #E0E0E0;
+  border-radius: 3px;
 }
 .skeleton {
   background: #ddd;
@@ -17,6 +24,12 @@
   margin-bottom: 20px;
 }
 
+.skeleton.thumbnail-small {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  background: #BDBDBD;
+}
 /* animation effects */
 .shimmer-wrapper {
   position: absolute;
