@@ -62,13 +62,59 @@ ul.order li span.count span {
   text-align: center;
 }
 
+/* shop products list */
+
 .list-of-product {
   border-top: 2px solid #000;
   border-bottom: 1px solid #000;
   padding-top: 5px;
   margin-top: 2rem;
 }
+
 .menu-product {
+  display: flex;
+  flex-wrap: wrap;
+  .product-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    img {
+      width: 100%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .right-stuff {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    .title-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.3rem;
+      .price {
+        color: $grey;
+        font-size: 0.9rem;
+      }
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      width: 100%;
+    }
+  }
+
   border-bottom: 1px solid #000;
   padding-bottom: 2rem;
   padding-top: 2rem;
@@ -79,29 +125,6 @@ ul.order li span.count span {
   &:first-child {
     border-top: 1px solid #000;
   }
-}
-
-.menu-product p {
-  margin-bottom: 10px;
-  font-size: 1rem;
-}
-.menu-product .product-name {
-  margin: 0;
-  display: -webkit-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.3rem;
-}
-.menu-product .price {
-  color: $grey;
-  font-size: 1.3rem;
-  justify-content: flex-end;
-}
-.menu-product img {
-  float: left;
-  width: 150px;
-  margin-right: 1rem;
 }
 
 .cart-title {
@@ -129,6 +152,20 @@ ul.order li span.count span {
 }
 
 @media (min-width: 768px) {
+  .menu-product .product-wrapper {
+    flex-direction: row;
+    img {
+      width: 170px;
+    }
+    .right-stuff .title-wrapper .price {
+      color: $grey;
+      font-size: 1rem;
+    }
+    .btn {
+      width: 170px;
+    }
+  }
+
   .marina-store {
     flex-direction: row;
     height: calc(100vh - 95px);
