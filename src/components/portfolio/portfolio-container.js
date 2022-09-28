@@ -16,7 +16,7 @@ export default class PortfolioContainer extends Component {
 
   getPortfolioItems() {
     axios
-      .get("https://marina-backend.herokuapp.com/portfolio")
+      .get("https://marina-back-end.vercel.app/portfolio")
       .then((response) => {
         this.setState({
           data: response.data,

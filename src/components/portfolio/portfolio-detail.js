@@ -18,7 +18,9 @@ export default class PortfolioDetail extends Component {
 
   getPortfolioItem() {
     axios
-      .get(`https://marina-backend.herokuapp.com/portfolio/${this.props.match.params.slug}`)
+      .get(
+        `https://marina-back-end.vercel.app/portfolio/${this.props.match.params.slug}`
+      )
       .then((response) => {
         console.log("res", response);
         this.setState(

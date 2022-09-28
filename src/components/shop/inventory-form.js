@@ -56,7 +56,7 @@ export default class InventoryForm extends Component {
   createProduct(event) {
     event.preventDefault();
     axios
-      .post("https://marina-backend.herokuapp.com/store", {
+      .post("https://marina-back-end.vercel.app/store", {
         name: this.state.name,
         description: this.state.description,
         image: this.state.image.dataURL,
@@ -85,7 +85,10 @@ export default class InventoryForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.createProduct} className="add-product inventory-form-wrapper">
+      <form
+        onSubmit={this.createProduct}
+        className="add-product inventory-form-wrapper"
+      >
         <h2>Inventory Manager</h2>
         <input
           name="name"

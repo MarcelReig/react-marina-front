@@ -20,7 +20,7 @@ export default class InventoryManager extends Component {
 
   handleDeleteClick(product) {
     axios
-      .delete(`https://marina-backend.herokuapp.com/store/${product._id.$oid}`)
+      .delete(`https://marina-back-end.vercel.app/store/${product._id.$oid}`)
       .then((response) => {
         this.setState({
           products: this.state.products.filter((item) => {
@@ -47,7 +47,7 @@ export default class InventoryManager extends Component {
 
   getStoreItems() {
     axios
-      .get("https://marina-backend.herokuapp.com/store")
+      .get("https://marina-back-end.vercel.app/store")
       .then((response) => {
         this.setState({
           products: response.data,

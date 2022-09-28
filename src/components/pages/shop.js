@@ -15,7 +15,7 @@ export default class Shop extends Component {
 
   getProducts = () => {
     axios
-      .get("https://marina-backend.herokuapp.com/store")
+      .get("https://marina-back-end.vercel.app/store")
       .then((response) => {
         this.setState({
           products: response.data,

@@ -64,7 +64,7 @@ export default class PortfolioForm extends Component {
 
   handleSubmit(event) {
     axios
-      .post("https://marina-backend.herokuapp.com/add", {
+      .post("https://marina-back-end.vercel.app/add", {
         name: this.state.collection_name,
         description: this.state.description,
         thumb_img_url: this.state.thumb_img_url.dataURL,
@@ -97,7 +97,7 @@ export default class PortfolioForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
-        <h2>Portfolio Manager</h2>
+          <h2>Portfolio Manager</h2>
           <div className="one-column">
             <input
               type="text"
