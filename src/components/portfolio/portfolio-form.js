@@ -64,7 +64,7 @@ export default class PortfolioForm extends Component {
 
   handleSubmit(event) {
     axios
-      .post("https://marina-back-end.vercel.app/add", {
+      .post("https://marina-back-end-wjnsy.ondigitalocean.app/add", {
         name: this.state.collection_name,
         description: this.state.description,
         thumb_img_url: this.state.thumb_img_url.dataURL,

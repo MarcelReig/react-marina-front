@@ -56,7 +56,7 @@ export default class InventoryForm extends Component {
   createProduct(event) {
     event.preventDefault();
     axios
-      .post("https://marina-back-end.vercel.app/store", {
+      .post("https://marina-back-end-wjnsy.ondigitalocean.app/store", {
         name: this.state.name,
         description: this.state.description,
         image: this.state.image.dataURL,

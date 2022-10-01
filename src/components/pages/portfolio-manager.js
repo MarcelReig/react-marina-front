@@ -21,7 +21,7 @@ export default class PortfolioManager extends Component {
   handleDeleteClick(portfolioItem) {
     axios
       .delete(
-        `https://marina-back-end.vercel.app/portfolio/${portfolioItem._id.$oid}`
+        `https://marina-back-end-wjnsy.ondigitalocean.app/portfolio/${portfolioItem._id.$oid}`
       )
       .then((response) => {
         this.setState({
@@ -49,7 +49,7 @@ export default class PortfolioManager extends Component {
 
   getPortfolioItems() {
     axios
-      .get("https://marina-back-end.vercel.app/portfolio")
+      .get("https://marina-back-end-wjnsy.ondigitalocean.app/portfolio")
 
       .then((response) => {
         this.setState({
