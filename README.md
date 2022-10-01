@@ -7,14 +7,14 @@
 - React
 - SCSS
 - Axios
-- Dropzone (para añadir las imágenes)
+- Dropzone
 - react-photo-masonry
 - GitHub
-- Heroku
+- Vercel
 
 ### Live version:
 
-- [Heroku app](https://react-marina-frontend.herokuapp.com/)
+- [Vercel app](https://react-marina-front.vercel.app/)
 
 ### Environment:
 
