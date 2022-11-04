@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { withRouter } from "react-router";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -17,8 +20,13 @@ const NavigationComponent = (props) => {
           {linkText}
         </NavLink>
       </li>
-      
     );
+  };
+
+  const handleSignOut = () => {
+    sessionStorage.removeItem("token");
+    props.history.push("/");
+    props.handleSuccessfulLogout();
   };
 
   return (
@@ -96,39 +104,23 @@ const NavigationComponent = (props) => {
               Contacto
             </NavLink>
           </li>
-          {/* Manten esto para desarollo - eliminalo para produción */}
-          {/* <li className="nav-link-wrapper">
-            <NavLink
-              to="/inventory-manager"
-              activeClassName="nav-link-active"
-              onClick={() => {
-                setIsNavExpanded(!isNavExpanded);
-              }}
-            >
-              Inventory Manager
-            </NavLink>
-          </li>
-          <li className="nav-link-wrapper">
-            <NavLink
-              to="/portfolio-manager"
-              activeClassName="nav-link-active"
-              onClick={() => {
-                setIsNavExpanded(!isNavExpanded);
-              }}
-            >
-              Portfolio Manager
-            </NavLink>
-          </li> */}
 
           {props.loggedInStatus === "LOGGED_IN"
-          ? [dynamicLink("/portfolio-manager", "Portfolio Manager"), dynamicLink("/inventory-manager", "Inventory Manager")]
-          : null}
-        </ul>
+            ? [
+                dynamicLink("/portfolio-manager", "Portfolio Manager"),
+                dynamicLink("/inventory-manager", "Inventory Manager"),
+              ]
+            : null}
 
-     
+          {props.loggedInStatus === "LOGGED_IN" ? (
+            <a className="logout" onClick={handleSignOut}>
+              <FontAwesomeIcon icon="sign-out-alt" />
+            </a>
+          ) : null}
+        </ul>
       </div>
     </div>
   );
 };
 
-export default NavigationComponent;
+export default withRouter(NavigationComponent);

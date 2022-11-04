@@ -15,8 +15,10 @@ export default class PortfolioContainer extends Component {
   }
 
   getPortfolioItems() {
+    let localENV = "http://127.0.0.1:5000/portfolio";
+    let doENV = "https://marina-back-end-wjnsy.ondigitalocean.app/portfolio";
     axios
-      .get("https://marina-back-end-wjnsy.ondigitalocean.app/portfolio")
+      .get(doENV)
       .then((response) => {
         this.setState({
           data: response.data,

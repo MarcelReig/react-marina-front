@@ -4,19 +4,20 @@
 
 ### I have used:
 
-- React
+- React 16
+- React router 5
 - SCSS
 - Axios
 - Dropzone
 - react-photo-masonry
 - GitHub
-- Vercel
+- Digitalocean
 
 ### Live version:
 
-- [Vercel app](https://react-marina-front.vercel.app/)
+- [Digitalocean app](https://king-prawn-app-dr5rk.ondigitalocean.app/)
 
 ### Environment:
 
-- npm: 8.5.5
-- node: 16.15.0
++ npm: 8.5.5
++ node: 16.15.0

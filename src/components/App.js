@@ -8,7 +8,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import NavigationContainer from "./navigation/navigation-container";
-
 import Home from "./pages/home";
 import About from "./pages/about";
 import Shop from "./pages/shop";
@@ -19,6 +18,8 @@ import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 import Icons from "../helpers/icons";
 import InventoryManager from "./pages/inventory-manager";
+
+
 
 library.add(faTrash, faSignOutAlt, faXmark);
 
@@ -92,12 +93,9 @@ export default class App extends Component {
                   />
                 )}
               />
-
               <Route path="/shop" component={Shop} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
-              {/* <Route path="/inventory-manager" component={InventoryManager} /> */}
-              {/* <Route path="/portfolio-manager" component={PortfolioManager} /> */}
               {this.state.loggedInStatus === "LOGGED_IN"
                 ? this.authorizedPages()
                 : null}
@@ -114,3 +112,4 @@ export default class App extends Component {
     );
   }
 }
+

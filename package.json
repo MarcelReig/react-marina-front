@@ -4,7 +4,6 @@
   "engines": {
     "node": "16.15.0"
   },
-
   "description": "Basic skeleton codebase for React/Redux/Router applications.",
   "scripts": {
     "preinstall": "npm set audit false",
