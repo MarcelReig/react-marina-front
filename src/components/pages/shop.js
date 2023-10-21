@@ -15,7 +15,7 @@ export default class Shop extends Component {
 
   getProducts = () => {
     axios
-      .get("https://marina-back-end-wjnsy.ondigitalocean.app/store")
+      .get("https://marina-backend.onrender.com/store")
       .then((response) => {
         this.setState({
           products: response.data,

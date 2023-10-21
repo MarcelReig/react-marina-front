@@ -19,7 +19,7 @@ export default class PortfolioDetail extends Component {
   getPortfolioItem() {
     axios
       .get(
-        `https://marina-back-end-wjnsy.ondigitalocean.app/portfolio/${this.props.match.params.slug}`
+        `https://marina-backend.onrender.com/portfolio/${this.props.match.params.slug}`
       )
       .then((response) => {
         console.log("res", response);

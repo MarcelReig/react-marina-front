@@ -24,8 +24,7 @@ export default class Login extends Component {
   }
 
   handleSubmit(event) {
-    let localENV = "http://127.0.0.1:5000/token";
-    let doENV = "https://marina-back-end-wjnsy.ondigitalocean.app/token";
+    let doENV = "https://marina-backend.onrender.com/token";
     axios
       .post(
         doENV,
