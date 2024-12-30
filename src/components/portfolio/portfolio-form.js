@@ -13,7 +13,7 @@ export default class PortfolioForm extends Component {
       collection_name: "",
       description: "",
       thumb_img_url: "",
-      gallery: [],
+      gallery: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
