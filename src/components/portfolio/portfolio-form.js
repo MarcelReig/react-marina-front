@@ -35,7 +35,13 @@ export default class PortfolioForm extends Component {
 
   handleGalleryDrop() {
     return {
-      addedfiles: (files) => this.setState({ gallery: files }),
+      addedfiles: (files) => {
+        const processedFiles = files.map((file) => ({
+          name: file.name,
+          dataURL: file.dataURL, // Esto asume que Dropzone genera una dataURL
+        }));
+        this.setState({ gallery: processedFiles });
+      },
     };
   }
 
@@ -63,6 +69,8 @@ export default class PortfolioForm extends Component {
   }
 
   handleSubmit(event) {
+    const galleryData = this.state.gallery.map((file) => file.dataURL); // Solo envía las URLs o base64
+
     axios
       .post("https://marina-backend.onrender.com/add", {
         name: this.state.collection_name,

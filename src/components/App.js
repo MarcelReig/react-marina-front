@@ -19,8 +19,6 @@ import NoMatch from "./pages/no-match";
 import Icons from "../helpers/icons";
 import InventoryManager from "./pages/inventory-manager";
 
-
-
 library.add(faTrash, faSignOutAlt, faXmark);
 
 export default class App extends Component {

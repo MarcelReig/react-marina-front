@@ -7,6 +7,9 @@ import { NavLink } from "react-router-dom";
 
 const NavigationComponent = (props) => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+
+  
   const dynamicLink = (route, linkText) => {
     return (
       <li className="nav-link-wrapper">
